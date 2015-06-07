@@ -37,7 +37,8 @@ $(function(){
        callinitiatefailed: onCallInitiateFail,
        oncall: oncall,
        callended: onCallTerminate,
-       callendedfailed: onCallEndedFailed
+       callendedfailed: onCallEndedFailed,
+       remotevideoinitialized:onRemoteVideoInitialized
      }
     });
  
@@ -54,6 +55,10 @@ $(function(){
     console.log("User = " + usernameToCall);
 
   }
+
+  function onRemoteVideoInitialized(videoTag) {
+  $('#videoBody').append(videoTag);
+}
 
   function endcall(){
     console.debug('end call!');
@@ -99,7 +104,7 @@ $(function(){
 
   $('#btnMakeCall').on('click', function(){
     
-    usernameToCall = 'reciever@oliveryepez.gmail.com';
+    usernameToCall = 'support@oliveryepez.gmail.com';
     kandy.call.makeCall(usernameToCall, false);
     
     $("#btnMakeCall").css('display', 'none');
